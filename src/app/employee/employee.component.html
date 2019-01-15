@@ -1,0 +1,36 @@
+<h1>
+  employee Details
+</h1>
+
+<div class="col-md-6">
+    <app-employeecount [all]="getallemployees()" [male]="getmaleeemployees()" [female]="getfemaleemployees()" (CustomEvent)=onradiobuttonselectedvalueChange($event)></app-employeecount>
+<table class="table table-borderd" >
+  <thead>
+    <tr><th>code</th><th>Name</th><th>Gender</th><th>
+      AnnualSalary
+    </th><th>D.O.B.</th><th>Index</th></tr>
+  </thead>
+  <tbody>
+    <ng-container *ngFor="let employee of employees;trackBy:trackbycode;let i=index">
+    <tr *ngIf="radiobuttonselectedValue=='all'|| radiobuttonselectedValue==employee.gender">
+      <td><a [routerLink]="['/employees',employee.code]">{{employee.code}}</a></td>
+      <td>{{employee.name   |uppercase| custom:employee.gender}}</td>
+      <td>{{employee.gender}}</td>
+
+      <td>{{employee.annualSalary | currency:usd}}</td> <td>{{employee.dateOfBirth | date:'fullDate'}}</td>
+      <td>{{i}}</td>
+      
+
+    </tr>
+  </ng-container>
+  </tbody>
+</table>
+<input type="button" class="btn btn-primary" value='More Employee' (click)=getmoreEmployee()>
+<hr/>
+<p> Please Enter Confirmation number </p>
+Confirmation number : <input type="text" [(ngModel)]="zipvalue"/>&nbsp;
+<input type="button" value="API" (click)=CallAPI() class="btn btn-success"/>
+<div *ngIf="statusMessage" class="panel panel-danger panel-heading">{{statusMessage}}</div>
+<hr/>
+<div> <input type="text" [(ngModel)]='colour' [style.background-color]='colour'/></div>
+</div>

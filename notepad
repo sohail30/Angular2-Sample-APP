@@ -1,0 +1,80 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>
+    Welcome to {{ title }}!
+  </h1>
+  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
+</div>
+<table>
+  <thead><tr><th>Employee Details</th></tr></thead>
+  <tbody>
+    <tr><td>First Name</td>
+    <td>{{firstname}}</td></tr>
+    <tr><td>Last Name</td>
+      <td>{lLastname}}</td></tr>
+      <tr><td>Gender</td>
+        <td>{{gender}}</td></tr>
+        <tr><td>Age</td>
+          <td>{{firstnaageme}}</td></tr>
+  </tbody>
+</table>
+<button>{{showdetails?showdetails:hidedetails}}</button>
+---------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-root',
+  /*templateUrl: './app.component.html',*/
+  template:`<div><h1>{{'page header= '+pageHeader}}</h1>
+  <img [src]='image'/>
+  <input type="button" disabled={{check}} value="click Me">
+<input type="button" [disabled]='check' value="click Me">
+  <button class="colorClass" [class.boldClass]=true>click me</button>
+  <button class="colorClass" [ngClass]=applyclass()>click me</button>
+  {{getfullname()}}
+  <div>`,//terinanry operation
+    styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+  title = 'angular2';
+  check:boolean:true
+  pageHeader:string="Angular header";
+  fitstname:string="sohail";
+  lastname:string="shaik";
+  //image:string="https://www.shipcompliant.com/wp-content/uploads/2015/03/GSO-Logo.png";
+  show:boolean=false;
+  applyboldclass:boolean=true;
+  applyitalicclass:boolean=true;
+applybackground:boolean=true;
+classtoapply:string='';
+  getfullname():string{
+
+    return this.fitstname+''+this.lastname;
+  }
+applyclass(){
+
+  let classes = {
+  boldClass:this.applyboldclass,
+  italicClass:this.applyitalicclass,
+  backgroundclasss:this.applybackground
+  }
+  return classes
+}
+----------------------------

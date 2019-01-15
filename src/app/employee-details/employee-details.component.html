@@ -1,0 +1,28 @@
+<p>
+ Employee Details see Result in console For Some Time </p>
+ <table class="table table-borderd" *ngFor="let emp of empp">
+   <tr>
+     <td>First Name</td>
+   <td>{{emp.name | uppercase}}</td>
+   </tr>
+   <tr>
+      <td>Gender</td>
+    <td>{{emp.gender}}</td>
+    </tr>
+
+    <tr>
+        <td>salary</td>
+      <td>{{emp.annualSalary}}</td>
+      </tr>
+
+      <tr>
+          <td>Date Of Birth</td>
+        <td>{{emp.dateOfBirth}}</td>
+        </tr>
+
+
+ </table>
+ {{statusMsg}}
+<div><input type="button" class="btn btn-primary" value="back"(click)=naviagte()/></div>
+ 
+
